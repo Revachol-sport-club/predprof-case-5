@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Отчёт об инвентаре</title>
+        <link rel="stylesheet" href="{% static "css/index.css" %}">
+        <link rel="stylesheet" href="{% static "css/forms.css" %}">
+    </head>
+    <body>
+        <table class="header" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="center" width="4%"><a href="{% url 'main_page' %}"><img class="Logo" width="100%" src="{% static "images/Logo.webp" %}"></a></td>
+                <td valign="center" width="78%"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></td>
+                {% if not user.is_authenticated %}
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'login' %}">Вход</a></p></td>
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'register' %}">Регистрация</a></p></td>
+                {% else %}
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'profile' %}">{{user}}</a></p></td>
+                    <td><p align="center" class="header-auth-text"><a class="header-auth" href="{% url 'logout' %}">Выход</a></p></td>
+                {% endif %}
+            </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" height="1300px">
+            <tr>
+                <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="20%"></td>
+                <td valign="top">
+                    <br>
+                    <p class="Logo-text" align="left">Всего инструментов: {{information.0}}</p>
+                    <hr>
+                    <ul>
+                        {% for i in instrument_names %}
+                            <li><p class="table-heading">{{i.0}}: {{i.1}}</p></li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                    <p class="Logo-text" align="left">Новых инструментов: {{information.1}}</p>
+                    <br>
+                    <p class="Logo-text" align="left">Сломанных инструментов: {{information.3}}</p>
+                    <br>
+                    <p class="Logo-text" align="left">Инструментов в ремонте: {{information.4}}</p>
+                    <br>
+                    <p class="Logo-text" align="left">Используемых инструментов: {{information.2}}</p>
+                    <hr>
+                    <ul>
+                        {% for i in users_instruments %}
+                            <li><p class="table-heading">Используется пользователем {{i.0}} ({{i.1|length}}): {% if i.1|length == 0 %} - {% else %} {% for j in i.1 %} {{j}}; {% endfor %} {% endif %}</p></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td style="background-image: linear-gradient(to left,rgb(153, 153, 153), #ffffff);" width="20%"></td>
+            </tr>
+        </table>
+
+    </body>
+</html>

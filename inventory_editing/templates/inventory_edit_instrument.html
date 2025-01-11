@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Редактирование инвентаря</title>
+        <link rel="stylesheet" href="{% static "css/index.css" %}">
+        <link rel="stylesheet" href="{% static "css/forms.css" %}">
+    </head>
+    <body>
+        <table class="header" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="center" width="4%"><a href="{% url 'main_page' %}"><img class="Logo" width="100%" src="{% static "images/Logo.webp" %}"></a></td>
+                <td valign="center" width="78%"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></td>
+                {% if not user.is_authenticated %}
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'login' %}">Вход</a></p></td>
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'register' %}">Регистрация</a></p></td>
+                {% else %}
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'profile' %}">{{user}}</a></p></td>
+                    <td><p align="center" class="header-auth-text"><a class="header-auth" href="{% url 'logout' %}">Выход</a></p></td>
+                {% endif %}
+            </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" height="1000px">
+            <tr>
+                <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="20%"></td>
+                <td valign="top">
+                    <br>
+                    <p align="center" class="Logo-text">Редактирование инструмента</p>
+                    <hr>
+                    <form method="POST"> {% csrf_token %}
+                        <table width="100%" cellpadding="5" cellspacing="0" border="0">
+                            <tr >
+                                <td>
+                                    <label class="form-standart-label">Название</label>
+                                    <input name="name" class="form-standart-input" style="font-size: 16px; height: 15px" value="{{instrument.1}}"></input>
+                                </td>
+                                <td >
+                                    <label class="form-standart-label">Наличие</label>
+                                    <select name="availability" class="form-standart-select" style="height: 33px; margin: 0">
+                                    {% if instrument.2 == 'Есть' %}
+                                        <option selected>Есть</option>
+                                        <option>Нет</option>
+                                    {% else %}
+                                        <option selected>Нет</option>
+                                        <option>Есть</option>
+                                    {% endif %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <label class="form-standart-label">Состояние</label>
+                                    <select name="condition" class="form-standart-select" style="height: 33px; margin: 0">
+                                        {% for i in possible_conditions %}
+                                            {% if i == instrument.3 %}
+                                                <option selected>{{i}}</option>
+                                            {% else %}
+                                                <option>{{i}}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <label class="form-standart-label">Принадлежность</label>
+                                    <select name="belonging" class="form-standart-select" style="height: 33px; margin: 0">
+                                        {% for i in possible_users %}
+                                            {% if i == instrument.4 %}
+                                                <option selected>{{i}}</option>
+                                            {% else %}
+                                                <option>{{i}}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td valign="bottom" colspan="4" align="left"><br><button class="form-standart-button" style="width: 100%; margin: 0; height: 33px; font-size: 24px;">Принять</button></td>
+                            </tr>
+                            <tr>
+                                
+                            </tr>
+                        </table>
+                        
+                    </form>
+                    {% if error %}
+                        <p class="table-heading" style="color: red;">Вы не заполнили поле названия инструмента!</p>
+                    {% endif %}
+                </td>
+                <td style="background-image: linear-gradient(to left, rgb(153, 153, 153), #ffffff);" width="20%"></td>
+            </tr>
+        </table>
+    </body>
+</html>
