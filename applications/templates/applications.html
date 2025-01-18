@@ -20,6 +20,23 @@
                 {% endif %}
             </tr>
           </table>
+        {% if user.is_authenticated and not user.is_superuser %}
+            <div class="big-container">
+                <div class="container"><button type="button" class="header-button"><a href="{% url 'applications_user' %}">Просмотр и создание заявок</a></button></div>
+            </div>
+        {% elif user.is_authenticated and user.is_superuser %}
+            <div class="big-container">
+                <div class="container"><a href="{% url 'applications_admin' %}"><button type="button" class="header-button">Просмотр заявок пользователей</button></a></div>
+                <div class="vertical-line"></div>
+                <div class="container"><a href="{% url 'inventory_editing' %}"><button type="button" class="header-button">Редактирование позиций инвентаря</button></a></div>
+                <div class="vertical-line"></div>
+                <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button">Закупка инвентаря</button></a></div>
+                <div class="vertical-line"></div>
+                <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button">Отчёт об инвентаре</button></a></div>
+                <div class="vertical-line"></div>
+                <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
+            </div>
+        {% endif%}
           <table height="10000px" width="100%" cellspacing="0" cellpadding="0">
             <tr>
                 <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="2%"></td>
@@ -104,7 +121,7 @@
                                             <td><p class="table-text">{{i.2}}</p></td>
                                             <td><p class="table-text">{{i.3}}</p></td>
                                             <td><p class="table-text">{{i.4}}</p></td>
-                                            <td><p align="center" class="table-text"><a href="{% url 'application_create' i.0 %}">Запросить</a></p></td>
+                                            <td><p align="center" class="table-text"><a href="{% url 'application_create' i.0 %}"><button type="button" class="form-standart-button" style="width: 90%; height: 30px; font-size: 17px; border-radius: 0.9rem">Запросить</button></a></p></td>
                                         </tr>
                                     {% endfor %}
                                 </table>

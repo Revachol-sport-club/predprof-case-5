@@ -2,13 +2,14 @@
 {% load static %}
 <html>
     <head>
-        <title>Заявки</title>
-        <link rel="stylesheet" href="{% static "css/index.css" %}">
+        <title>Revachol-Sport-Club</title>
+        <link rel="stylesheet" href="{% static "css/index.css" %}?version=1">
         <link rel="stylesheet" href="{% static "css/forms.css" %}">
     </head>
     <body>
+        <script src="{% static "Menu_animation.js" %}"></script>
         <table class="header" width="100%" cellpadding="0" cellspacing="0">
-            <tr>
+             <tr>
                 <td valign="center" width="4%"><a href="{% url 'main_page' %}"><img class="Logo" width="100%" src="{% static "images/Logo.webp" %}"></a></td>
                 <td valign="center" width="78%"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></td>
                 {% if not user.is_authenticated %}
@@ -37,49 +38,30 @@
                 <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
             </div>
         {% endif%}
-        <table width="100%" cellpadding="0" cellspacing="0" height="1000px">
+        <table height="1000px" width="100%" cellspacing="0" cellpadding="0">
             <tr>
-                <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="20%"></td>
-                <td valign="top">
-                <br>
-                <p align="center" class="Logo-text">Пользовательские заявки</p>
-                <hr>
-                    <form method="POST"> {% csrf_token %}
-                        <table width="100%" cellpadding="3" cellspacing="0" border="1">
-                            <tr>   
-                                <td><p class="table-heading">ID заявки</p></td>
-                                <td><p class="table-heading">Пользователь</p></td>
-                                <td><p class="table-heading">Запрашиваемый инструмент</p></td>
-                                <td><p class="table-heading">Принадлежность</p></td>
-                                <td width="16%"><p align="center" class="table-heading">Решение</p></td>
-                            </tr>
-
-                            {% for i in applications_data %}
-                                <tr>
-                                    <td><p class="table-text">{{i.0}}</p></td>
-                                    <td><p class="table-text">{{i.1}}</p></td>
-                                    <td><p class="table-text">{{i.2}}</p></td>
-                                    <td><p class="table-text">{{i.3}}</p></td>
-                                    <td>
-                                        <label class="form-standart-label" style="font-size: 20px"><input class="custom-radio" type="radio" value="ignore" name="application{{i.0}}" checked>Игнорировать</input></label>
-                                        <label class="form-standart-label" style="font-size: 20px"><input class="custom-radio" type="radio" value="confirm" name="application{{i.0}}">Одобрить</input></label>
-                                        <label class="form-standart-label" style="font-size: 20px"><input class="custom-radio" type="radio" value="decline" name="application{{i.0}}">Отклонить</input></label>
-                                    </td>
-                                </tr>
-                            {% endfor %}
+                <td style="background-image: linear-gradient(to right, #5a5a5a, #ffffff);" width="12%"></td>
+                <td valign="top" bgcolor="white" width="60%">
+                    <br><br>
+                    <table width="100%" border="1" cellspacing="0" cellpadding="3">
+                        <tr>
+                            <td><p class="table-heading">Название</p></td>
+                            <td><p class="table-heading">Наличие</p></td>
+                            <td><p class="table-heading">Состояние</p></td>
+                            <td><p class="table-heading">Принадлежность</p></td>
+                        </tr>
+                        {% for i in inventory %}
                             <tr>
-                                <td colspan="4"></td>
-                                <td align="center"><button class="form-standart-button" type="submit" style="width: 80%;">Принять</button></td>
+                                <td><p class="table-text">{{i.1}}</p></td>
+                                <td><p class="table-text">{{i.2}}</p></td>
+                                <td><p class="table-text">{{i.3}}</p></td>
+                                <td><p class="table-text">{{i.4}}</p></td>
                             </tr>
-                        </table> 
-                    </form>
+                        {% endfor %}
+                    </table>
                 </td>
-                <td style="background-image: linear-gradient(to left, rgb(153, 153, 153), #ffffff);" width="20%"></td>
+                <td style="background-image: linear-gradient(to left, #5a5a5a, #ffffff);" width="12%"></td>
             </tr>
         </table>
-
-
-
     </body>
 </html>
-    

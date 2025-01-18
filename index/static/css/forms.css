@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.form-standart-label {
+    display: block;
+    width: 100%;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 28px;
+    margin: 0.5rem;
+    margin-left: 0;
+}
+.form-standart-input {
+    display: block;
+    width: 93%;
+    height: 34px;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 400;
+    border: 1px solid #999999;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-standart-input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+.form-standart-button {
+    font-family: "Roboto";
+    border-radius: 0.25rem;
+    font-size: 20px;
+    margin: 0.7rem;
+    margin-left: 0;
+    display: block;
+    width: 30%;
+    height: 37px;
+    cursor: pointer;
+    background-color: rgb(255, 181, 23);
+    border: 1px solid #686868;
+    transition: background-color 0.15s ease-in-out;
+}
+.form-standart-select {
+    display: block;
+    width: 100%;
+}
+.form-standart-button:hover {
+    background-color: rgb(235, 160, 0);
+}
