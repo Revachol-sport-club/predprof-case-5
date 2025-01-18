@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'applications',
     'app_auth',
     'inventory_editing',
+    'users',
 ]
 
 MIDDLEWARE = [
