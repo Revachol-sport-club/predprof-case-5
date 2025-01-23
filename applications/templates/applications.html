@@ -22,7 +22,7 @@
           </table>
         {% if user.is_authenticated and not user.is_superuser %}
             <div class="big-container">
-                <div class="container"><button type="button" class="header-button"><a href="{% url 'applications_user' %}">Просмотр и создание заявок</a></button></div>
+                <div class="container"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;"><a href="{% url 'applications_user' %}">Просмотр и создание заявок</a></button></div>
             </div>
         {% elif user.is_authenticated and user.is_superuser %}
             <div class="big-container">
@@ -49,10 +49,10 @@
                                 <hr>
                                 <table width="100%" border="1" cellpadding="3" cellspacing="0">
                                     <tr>
-                                        <td><p class="table-heading">ID заявки</p></td>
-                                        <td><p class="table-heading">Название инструмента</p></td>
-                                        <td><p class="table-heading">Принадлежность</p></td>
-                                        <td><p class="table-heading">Статус заявки</p></td>
+                                        <td><p align="center" class="table-heading">ID заявки</p></td>
+                                        <td><p align="center" class="table-heading">Название инструмента</p></td>
+                                        <td><p align="center" class="table-heading">Принадлежность</p></td>
+                                        <td><p align="center" class="table-heading">Статус заявки</p></td>
                                     </tr>
                                     {% for i in my_applications %}
                                         <tr>
@@ -109,10 +109,10 @@
                                 </form>
                                 <table width="100%" border="1" cellspacing="0" cellpadding="3">
                                     <tr>
-                                        <td><p class="table-heading">Название</p></td>
-                                        <td><p class="table-heading">Наличие</p></td>
-                                        <td><p class="table-heading">Состояние</p></td>
-                                        <td><p class="table-heading">Принадлежность</p></td>
+                                        <td><p align="center" class="table-heading">Название</p></td>
+                                        <td><p align="center" class="table-heading">Наличие</p></td>
+                                        <td><p align="center" class="table-heading">Состояние</p></td>
+                                        <td><p align="center" class="table-heading">Принадлежность</p></td>
                                         <td><p align="center" class="table-heading">Запрос</p></td>
                                     </tr>
                                     {% for i in inventory %}

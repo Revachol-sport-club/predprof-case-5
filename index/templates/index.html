@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>Revachol-Sport-Club</title>
+	<link rel="icon" href="{% static "images/icon.webp" %}" type="image/x-icon">
         <link rel="stylesheet" href="{% static "css/index.css" %}?version=1">
         <link rel="stylesheet" href="{% static "css/forms.css" %}">
     </head>
@@ -45,10 +46,10 @@
                     <br><br>
                     <table width="100%" border="1" cellspacing="0" cellpadding="3">
                         <tr>
-                            <td><p class="table-heading">Название</p></td>
-                            <td><p class="table-heading">Наличие</p></td>
-                            <td><p class="table-heading">Состояние</p></td>
-                            <td><p class="table-heading">Принадлежность</p></td>
+                            <td><p align="center" class="table-heading">Название</p></td>
+                            <td><p align="center" class="table-heading">Наличие</p></td>
+                            <td><p align="center" class="table-heading">Состояние</p></td>
+                            <td><p align="center" class="table-heading">Принадлежность</p></td>
                         </tr>
                         {% for i in inventory %}
                             <tr>

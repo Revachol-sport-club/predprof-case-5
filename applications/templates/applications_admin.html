@@ -26,7 +26,7 @@
             </div>
         {% elif user.is_authenticated and user.is_superuser %}
             <div class="big-container">
-                <div class="container"><a href="{% url 'applications_admin' %}"><button type="button" class="header-button">Просмотр заявок пользователей</button></a></div>
+                <div class="container"><a href="{% url 'applications_admin' %}"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;">Просмотр заявок пользователей</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_editing' %}"><button type="button" class="header-button">Редактирование позиций инвентаря</button></a></div>
                 <div class="vertical-line"></div>
@@ -47,10 +47,10 @@
                     <form method="POST"> {% csrf_token %}
                         <table width="100%" cellpadding="3" cellspacing="0" border="1">
                             <tr>   
-                                <td><p class="table-heading">ID заявки</p></td>
-                                <td><p class="table-heading">Пользователь</p></td>
-                                <td><p class="table-heading">Запрашиваемый инструмент</p></td>
-                                <td><p class="table-heading">Принадлежность</p></td>
+                                <td><p align="center" class="table-heading">ID заявки</p></td>
+                                <td><p align="center" class="table-heading">Пользователь</p></td>
+                                <td><p align="center" class="table-heading">Запрашиваемый инструмент</p></td>
+                                <td><p align="center" class="table-heading">Принадлежность</p></td>
                                 <td width="16%"><p align="center" class="table-heading">Решение</p></td>
                             </tr>
 
