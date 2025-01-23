@@ -35,7 +35,7 @@
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button">Отчёт об инвентаре</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
+                <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;">Пользователи</button></a></div>
             </div>
         {% endif%}
         <table height="1000px" width="100%" cellspacing="0" cellpadding="0">
@@ -45,10 +45,10 @@
                     <br><br>
                     <table width="100%" cellspacing="0" cellpadding="3" border="1">
                         <tr>
-                            <td><p class="table-heading">Пользователь</p></td>
-                            <td><p class="table-heading">Имя</p></td>
-                            <td><p class="table-heading">Фамилия</p></td>
-                            <td><p class="table-heading">Должность</p></td>
+                            <td><p align="center" class="table-heading">Пользователь</p></td>
+                            <td><p align="center" class="table-heading">Имя</p></td>
+                            <td><p align="center" class="table-heading">Фамилия</p></td>
+                            <td><p align="center" class="table-heading">Должность</p></td>
                             <td><p align="center" class="table-heading">Изменить</p></td>
                         </tr>
                         {% for i in users %}
