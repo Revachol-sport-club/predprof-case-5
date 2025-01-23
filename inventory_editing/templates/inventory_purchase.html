@@ -30,7 +30,7 @@
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_editing' %}"><button type="button" class="header-button">Редактирование позиций инвентаря</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button">Закупка инвентаря</button></a></div>
+                <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;">Закупка инвентаря</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button">Отчёт об инвентаре</button></a></div>
                 <div class="vertical-line"></div>
@@ -75,11 +75,11 @@
                     <br><br>
                     <table width="100%" cellpadding="3" cellspacing="0" border="1">
                         <tr>
-                            <td><p class="table-heading">Название</p></td>
-                            <td><p class="table-heading">Название поставщика</p></td>
-                            <td><p class="table-heading">Количество</p></td>
-                            <td><p class="table-heading">Цена</p></td>
-                            <td><p class="table-heading">Статус</p></td>
+                            <td><p align="center" class="table-heading">Название</p></td>
+                            <td><p align="center" class="table-heading">Название поставщика</p></td>
+                            <td><p align="center" class="table-heading">Количество</p></td>
+                            <td><p align="center" class="table-heading">Цена</p></td>
+                            <td><p align="center" class="table-heading">Статус</p></td>
                         </tr>
                         {% for i in purchase_list %}
                             <tr>

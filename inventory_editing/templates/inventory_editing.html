@@ -28,7 +28,7 @@
             <div class="big-container">
                 <div class="container"><a href="{% url 'applications_admin' %}"><button type="button" class="header-button">Просмотр заявок пользователей</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'inventory_editing' %}"><button type="button" class="header-button">Редактирование позиций инвентаря</button></a></div>
+                <div class="container"><a href="{% url 'inventory_editing' %}"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;">Редактирование позиций инвентаря</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button">Закупка инвентаря</button></a></div>
                 <div class="vertical-line"></div>
@@ -94,10 +94,10 @@
                     <hr>
                     <table width="100%" border="1" cellspacing="0" cellpadding="3">
                         <tr>
-                            <td><p class="table-heading">Название</p></td>
-                            <td><p class="table-heading">Наличие</p></td>
-                            <td><p class="table-heading">Состояние</p></td>
-                            <td><p class="table-heading">Принадлежность</p></td>
+                            <td><p align="center" class="table-heading">Название</p></td>
+                            <td><p align="center" class="table-heading">Наличие</p></td>
+                            <td><p align="center" class="table-heading">Состояние</p></td>
+                            <td><p align="center" class="table-heading">Принадлежность</p></td>
                             <td><p align="center" class="table-heading">Редактирование</p></td>
                         </tr>
                         {% for i in inventory %}
