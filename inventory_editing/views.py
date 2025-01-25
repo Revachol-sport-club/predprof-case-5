@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponse
 import sqlite3
+from datetime import date
 def connect():
     connection = sqlite3.connect('./db.sqlite3', check_same_thread=False)
     cursor = connection.cursor()
@@ -91,7 +92,7 @@ def inventory_edit_instrument(request, id=1):
             cursor.execute('UPDATE Inventory SET name = ?, availability = ?, condition = ?, belonging = ? WHERE id = ?', (request.POST.get("name",""), request.POST.get("availability",""), condition, request.POST.get("belonging",""), id))
             connection.commit()
             cursor.close()
-            return redirect("http://127.0.0.1:8000/inventory_editing/")
+            return redirect("inventory_editing")
     data={"instrument": instrument,
           "possible_users": users_usernames,
           "possible_conditions": ["Новый","Используемый","Сломанный","В ремонте"],
