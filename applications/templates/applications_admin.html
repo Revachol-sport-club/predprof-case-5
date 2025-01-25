@@ -45,18 +45,16 @@
                 <p align="center" class="Logo-text">Пользовательские заявки</p>
                 <hr>
                     <form method="POST"> {% csrf_token %}
-                        <table width="100%" cellpadding="3" cellspacing="0" border="1">
+                        <table width="100%" cellpadding="5" cellspacing="0" border="1">
                             <tr>   
-                                <td><p align="center" class="table-heading">ID заявки</p></td>
                                 <td><p align="center" class="table-heading">Пользователь</p></td>
                                 <td><p align="center" class="table-heading">Запрашиваемый инструмент</p></td>
                                 <td><p align="center" class="table-heading">Принадлежность</p></td>
-                                <td width="16%"><p align="center" class="table-heading">Решение</p></td>
+                                <td width="20%"><p align="center" class="table-heading">Решение</p></td>
                             </tr>
 
                             {% for i in applications_data %}
                                 <tr>
-                                    <td><p class="table-text">{{i.0}}</p></td>
                                     <td><p class="table-text">{{i.1}}</p></td>
                                     <td><p class="table-text">{{i.2}}</p></td>
                                     <td><p class="table-text">{{i.3}}</p></td>
@@ -67,8 +65,10 @@
                                     </td>
                                 </tr>
                             {% endfor %}
+                        </table> 
+                        <table width="100%" cellpadding="5" cellspacing="0"> 
                             <tr>
-                                <td colspan="4"></td>
+                                <td colspan="4" width="80%"></td>
                                 <td align="center"><button class="form-standart-button" type="submit" style="width: 80%;">Принять</button></td>
                             </tr>
                         </table> 
