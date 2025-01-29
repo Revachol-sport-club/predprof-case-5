@@ -30,78 +30,78 @@
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_editing' %}"><button type="button" class="header-button">Редактирование позиций инвентаря</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;">Закупка инвентаря</button></a></div>
+                <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button"; style="font-size: 19px; background-color: rgb(233, 174, 48) ">Закупка инвентаря</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button">Отчёт об инвентаре</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
             </div>
         {% endif%}
-        <table width="100%" cellpadding="0" cellspacing="0" height="1000px">
-            <tr>
-                <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="20%"></td>
-                <td valign="top">
-                    <br>
-                    <p align="center" class="Logo-text">Закупка инвентаря</p>
-                    <hr>
-                    <br>
-                    <p align="left" class="table-text" style="font-size: 26px; margin: 0; margin-bottom: 10px;">Создание плана закупки</p>
-                    <form method="POST"> {% csrf_token %}
-                        <table width="80%" cellpadding="3" cellspacing="0" border="0">
+        <div class="background"><img src="{% static "images/Background.png" %}" width="100%"></div>
+        <div class="table" style="width: 60%; left: 20%; backdrop-filter: blur(8px)">
+            <table width="90%" cellpadding="0" cellspacing="0" height="1000px">
+                <tr>
+                    <td valign="top">
+                        <br>
+                        <p align="center" class="Logo-text">Закупка инвентаря</p>
+                        <hr>
+                        <br>
+                        <p align="left" class="table-text" style="font-size: 26px; margin: 0; margin-bottom: 10px;">Создание плана закупки</p>
+                        <form method="POST"> {% csrf_token %}
+                            <table width="80%" cellpadding="3" cellspacing="0" border="0">
+                                <tr>
+                                    <td>
+                                        <label class="form-standart-label">Название</label>
+                                        <input name="name" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="Штанга"></input>
+                                    </td>
+                                    <td>
+                                        <label class="form-standart-label">Название поставщика</label>
+                                        <input name="company_name" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="Ревашольский спортивный магазин"></input>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td><br>
+                                        <label class="form-standart-label">Количество</label>
+                                        <input name="quantity" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="1"></input>
+                                    </td>
+                                    <td><br>
+                                        <label class="form-standart-label">Цена</label>
+                                        <input name="price" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="15000"></input>
+                                    </td>
+                                    <td valign="bottom"><br><button class="form-standart-button" style="width: 80%; margin: 0; height: 33px; font-size: 20px;">Принять</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <br><br>
+                        <table width="100%" cellpadding="5" cellspacing="0" border="1" bgcolor="white">
                             <tr>
-                                <td>
-                                    <label class="form-standart-label">Название</label>
-                                    <input name="name" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="Штанга"></input>
-                                </td>
-                                <td>
-                                    <label class="form-standart-label">Название поставщика</label>
-                                    <input name="company_name" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="Ревашольский спортивный магазин"></input>
-                                </td>
-                                <td width="20%"></td>
+                                <td><p align="center" class="table-heading">Название</p></td>
+                                <td><p align="center" class="table-heading">Название поставщика</p></td>
+                                <td><p align="center" class="table-heading">Количество</p></td>
+                                <td><p align="center" class="table-heading">Цена</p></td>
+                                <td><p align="center" class="table-heading">Статус</p></td>
                             </tr>
-                            <tr>
-                                <td><br>
-                                    <label class="form-standart-label">Количество</label>
-                                    <input name="quantity" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="1"></input>
-                                </td>
-                                <td><br>
-                                    <label class="form-standart-label">Цена</label>
-                                    <input name="price" class="form-standart-input" style="font-size: 16px; height: 15px" placeholder="15000"></input>
-                                </td>
-                                <td valign="bottom"><br><button class="form-standart-button" style="width: 80%; margin: 0; height: 33px; font-size: 20px;">Принять</button></td>
-                            </tr>
+                            {% for i in purchase_list %}
+                                <tr>
+                                    <td><p class="table-text">{{i.1}}</p></td>
+                                    <td><p class="table-text">{{i.2}}</p></td>
+                                    <td><p class="table-text">{{i.3}}</p></td>
+                                    <td><p class="table-text">{{i.4}}</p></td>
+                                    <td><p class="table-text">{{i.5}}</p></td>
+                                </tr>
+                            {% endfor %}
                         </table>
-                    </form>
-                    <br><br>
-                    <table width="100%" cellpadding="5" cellspacing="0" border="1">
-                        <tr>
-                            <td><p align="center" class="table-heading">Название</p></td>
-                            <td><p align="center" class="table-heading">Название поставщика</p></td>
-                            <td><p align="center" class="table-heading">Количество</p></td>
-                            <td><p align="center" class="table-heading">Цена</p></td>
-                            <td><p align="center" class="table-heading">Статус</p></td>
-                        </tr>
-                        {% for i in purchase_list %}
-                            <tr>
-                                <td><p class="table-text">{{i.1}}</p></td>
-                                <td><p class="table-text">{{i.2}}</p></td>
-                                <td><p class="table-text">{{i.3}}</p></td>
-                                <td><p class="table-text">{{i.4}}</p></td>
-                                <td><p class="table-text">{{i.5}}</p></td>
-                            </tr>
-                        {% endfor %}
-                    </table>
 
-                </td>
-                <td style="background-image: linear-gradient(to left, rgb(153, 153, 153), #ffffff);" width="20%"></td>
-            </tr>
-        
+                    </td>
+                </tr>
+            
 
 
 
 
-        </table>
-
+            </table>
+        </div>
 
     </body>
 </html>

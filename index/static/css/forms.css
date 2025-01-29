@@ -29,7 +29,7 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }
-.form-standart-button {
+button {
     font-family: "Roboto";
     border-radius: 0.25rem;
     font-size: 20px;
@@ -39,14 +39,21 @@
     width: 30%;
     height: 37px;
     cursor: pointer;
-    background-color: rgb(255, 181, 23);
+    background-color: rgb(233, 174, 48);
     border: 1px solid #686868;
-    transition: background-color 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+button.form-delete-button {
+    background-color: rgb(233, 48, 48);
 }
 .form-standart-select {
     display: block;
     width: 100%;
 }
-.form-standart-button:hover {
-    background-color: rgb(235, 160, 0);
+button:hover {
+    background-color: rgb(204, 152, 40);
+    color: rgb(0, 0, 0);
+}
+button.form-delete-button:hover {
+    background-color: rgb(204, 40, 40);
 }

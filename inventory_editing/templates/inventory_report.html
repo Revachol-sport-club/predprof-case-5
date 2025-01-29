@@ -32,47 +32,50 @@
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button">Закупка инвентаря</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button"; style="background-color: #FFB517; color: black;">Отчёт об инвентаре</button></a></div>
+                <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button"; style="font-size: 19px; background-color: rgb(233, 174, 48) ">Отчёт об инвентаре</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
             </div>
         {% endif%}
-        <table width="100%" cellpadding="0" cellspacing="0" height="1300px">
-            <tr>
-                <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="20%"></td>
-                <td valign="top">
-                    <br>
-                    <p class="Logo-text" align="left">Всего инструментов: {{information.0}}</p>
+        <div class="background"><img src="{% static "images/Background.png" %}" width="100%"></div>
+        <div class="table" style="backdrop-filter: blur(8px)">
+            <table width="90%" cellpadding="0" cellspacing="0" height="1300px">
+                <tr>
+                    <td valign="top">
+                        <br>
+                        <p class="Logo-text" align="left">Всего инструментов: {{information.0}}</p>
 
-                    <ul>
-                        {% for i in instrument_names %}
-                            <li><p class="table-heading">{{i.0}}: {{i.1}}</p></li>
-                        {% endfor %}
-                    </ul>
-                    <hr>
-                    <br>
-                    <p class="Logo-text" align="left">Используемых инструментов: {{information.2}}</p>
+                        <ul>
+                            {% for i in instrument_names %}
+                                <li><p class="table-heading">{{i.0}}: {{i.1}}</p></li>
+                            {% endfor %}
+                        </ul>
+                        <hr>
+                        <br>
+                        <p class="Logo-text" align="left">Используемых инструментов: {{information.2}}</p>
 
-                    <ul>
-                        {% for i in users_instruments %}
-                            <li><p class="table-heading">Используется пользователем {{i.0}} ({{i.1|length}}): {% if i.1|length == 0 %} - {% else %} {% for j in i.1 %} {{j}}; {% endfor %} {% endif %}</p></li>
-                        {% endfor %}
-                    </ul>
-                    <br>
-                    <hr>
-                    <p class="Logo-text" align="left">Новых инструментов: {{information.1}}</p>
-                    <br>
-                    <hr>
-                    <p class="Logo-text" align="left">Сломанных инструментов: {{information.3}}</p>
-                    <br>
-                    <hr>
-                    <p class="Logo-text" align="left">Инструментов в ремонте: {{information.4}}</p>
-                    <br>
-                </td>
-                <td style="background-image: linear-gradient(to left,rgb(153, 153, 153), #ffffff);" width="20%"></td>
-            </tr>
-        </table>
-
+                        <ul>
+                            {% for i in users_instruments %}
+                                <li><p class="table-heading">Используется пользователем {{i.0}} ({{i.1|length}}): {% if i.1|length == 0 %} - {% else %} {% for j in i.1 %} {{j}}; {% endfor %} {% endif %}</p></li>
+                            {% endfor %}
+                        </ul>
+                        <br>
+                        <hr>
+                        <p class="Logo-text" align="left">Новых инструментов: {{information.1}}</p>
+                        <br>
+                        <hr>
+                        <p class="Logo-text" align="left">Сломанных инструментов: {{information.3}}</p>
+                        <br>
+                        <hr>
+                        <p class="Logo-text" align="left">Инструментов в ремонте: {{information.4}}</p>
+                        <br>
+                        <form method = "POST"> {% csrf_token %}
+                            <button class="form-standart-button" type="submit" style="width: 20%;">Скачать отчёт</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
     </body>
 </html>
