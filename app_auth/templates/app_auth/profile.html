@@ -36,36 +36,32 @@
                 <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
             </div>
         {% endif%}
-      <table width="100%" cellpadding="0" cellspacing="0" height="1000px">
-        <tr>
-            <td style="background-image: linear-gradient(to right,rgb(153, 153, 153), #ffffff);" width="20%"></td>
-            <td valign='top'>
-                <br>
-                <p align="center" class="Logo-text">Мой инвентарь</p>
-                <hr>
-                <table width="100%" cellspacing="0" cellpadding="3" border="1">
-                    <tr>
-                        <td><p class="table-heading">Название</p></td>
-                        <td><p class="table-heading">Наличие</p></td>
-                        <td><p class="table-heading">Состояние</p></td>
-                    </tr>
-                    {% for i in my_inventory%}
-                        <tr>
-                            <td><p class="table-text">{{i.0}}</p></td>
-                            <td><p class="table-text">{{i.1}}</p></td>
-                            <td><p class="table-text">{{i.2}}</p></td>
-                        </tr>
-                    {% endfor %}
+        <div class="background"><img src="{% static "images/Background.png" %}" width="100%"></div>
+        <div class="table">
+            <table width="90%" cellpadding="0" cellspacing="0" height="1000px">
+                <tr>
+                    <td valign='top'>
+                        <br>
+                        <p align="center" class="Logo-text">Мой инвентарь</p>
+                        <hr>
+                        <table width="100%" cellspacing="0" cellpadding="3" border="1" bgcolor="white">
+                            <tr>
+                                <td><p class="table-heading" align="center">Название</p></td>
+                                <td><p class="table-heading" align="center">Наличие</p></td>
+                                <td><p class="table-heading" align="center">Состояние</p></td>
+                            </tr>
+                            {% for i in my_inventory%}
+                                <tr>
+                                    <td><p class="table-text">{{i.0}}</p></td>
+                                    <td><p class="table-text">{{i.1}}</p></td>
+                                    <td><p class="table-text">{{i.2}}</p></td>
+                                </tr>
+                            {% endfor %}
 
-                </table>
-            </td>
-            <td style="background-image: linear-gradient(to left, rgb(153, 153, 153), #ffffff);" width="20%"></td>
-        </tr>
-
-
-
-
-
-      </table>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
