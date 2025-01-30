@@ -11,12 +11,13 @@
         <table class="header" width="100%" cellpadding="0" cellspacing="0">
              <tr>
                 <td valign="center" width="4%"><a href="{% url 'main_page' %}"><img class="Logo" width="100%" src="{% static "images/Logo.webp" %}"></a></td>
-                <td valign="center" width="78%"><a href="{% url 'main_page' %}"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></a></td>
+                <td valign="center" width="32%"><a href="{% url 'main_page' %}"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></a></td>
+                <td width="50%"></td>
                 {% if not user.is_authenticated %}
                     <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'login' %}">Вход</a></p></td>
                     <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'register' %}">Регистрация</a></p></td>
                 {% else %}
-                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'profile' %}">{{user}}</a></p></td>
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'profile' %}"><i>{{user}}</i></a></p></td>
                     <td><p align="center" class="header-auth-text"><a class="header-auth" href="{% url 'logout' %}">Выход</a></p></td>
                 {% endif %}
             </tr>
@@ -35,7 +36,7 @@
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button">Отчёт об инвентаре</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button"; style="font-size: 19px; background-color: rgb(233, 174, 48) ">Пользователи</button></a></div>
+                <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button visited">Пользователи</button></a></div>
             </div>
         {% endif%}
         <div class="background"><img src="{% static "images/Background.png" %}" width="100%"></div>
@@ -58,7 +59,7 @@
                                     <td><p class="table-text">{{i.10}}</p>
                                     <td><p class="table-text">{{i.5}}</p>
                                     <td><p class="table-text">{% if i.3 == 1 %} Администратор {% else %} Пользователь {% endif %}</p>
-                                    <td><p align="center" class="table-text"><a href="{% url 'user_change_state' i.0 %}"><button type="button" class="form-standart-button" style="width: 80%; height: 30px; font-size: 17px; border-radius: 0.9rem">{% if i.3 == 1 %} Снять {% else %} Дать {% endif %}права администратора</button></a></p>
+                                    <td><p align="center" class="table-text"><a href="{% url 'user_change_state' i.0 %}"><button type="button" class="form-standart-button" style="width: 80%; height: 30px; font-size: 17px; border-radius: 0.9rem; --reming: 22rem;">{% if i.3 == 1 %} Снять {% else %} Дать {% endif %}права администратора</button></a></p>
                                 </tr>
                             {% endfor %}
                         </table>
