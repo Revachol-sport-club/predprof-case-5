@@ -10,12 +10,13 @@
         <table class="header" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td valign="center" width="4%"><a href="{% url 'main_page' %}"><img class="Logo" width="100%" src="{% static "images/Logo.webp" %}"></a></td>
-                <td valign="center" width="78%"><a href="{% url 'main_page' %}"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></a></td>
+                <td valign="center" width="32%"><a href="{% url 'main_page' %}"><p align="left" class="Logo-text">Ревашольский спортивный кружок</p></a></td>
+                <td width="50%"></td>
                 {% if not user.is_authenticated %}
                     <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'login' %}">Вход</a></p></td>
                     <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'register' %}">Регистрация</a></p></td>
                 {% else %}
-                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'profile' %}">{{user}}</a></p></td>
+                    <td><p align="right" class="header-auth-text"><a class="header-auth" href="{% url 'profile' %}"><i>{{user}}</i></a></p></td>
                     <td><p align="center" class="header-auth-text"><a class="header-auth" href="{% url 'logout' %}">Выход</a></p></td>
                 {% endif %}
             </tr>
@@ -32,13 +33,13 @@
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'inventory_purchase' %}"><button type="button" class="header-button">Закупка инвентаря</button></a></div>
                 <div class="vertical-line"></div>
-                <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button"; style="font-size: 19px; background-color: rgb(233, 174, 48) ">Отчёт об инвентаре</button></a></div>
+                <div class="container"><a href="{% url 'inventory_report'%}"><button type="button" class="header-button visited";>Отчёт об инвентаре</button></a></div>
                 <div class="vertical-line"></div>
                 <div class="container"><a href="{% url 'users'%}"><button type="button" class="header-button">Пользователи</button></a></div>
             </div>
         {% endif%}
         <div class="background"><img src="{% static "images/Background.png" %}" width="100%"></div>
-        <div class="table" style="backdrop-filter: blur(8px)">
+        <div class="table">
             <table width="90%" cellpadding="0" cellspacing="0" height="1300px">
                 <tr>
                     <td valign="top">
@@ -70,7 +71,7 @@
                         <p class="Logo-text" align="left">Инструментов в ремонте: {{information.4}}</p>
                         <br>
                         <form method = "POST"> {% csrf_token %}
-                            <button class="form-standart-button" type="submit" style="width: 20%;">Скачать отчёт</button>
+                            <button class="form-standart-button" type="submit" style="width: 20%; --reming: 20rem;">Скачать отчёт</button>
                         </form>
                     </td>
                 </tr>

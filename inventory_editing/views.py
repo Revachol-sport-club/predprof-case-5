@@ -76,8 +76,8 @@ def inventory_report(request):
     }
     if request.method == "POST":
         report = open("report "+str(date.today()) + ".txt", "w+")
-        report_text = f"Всего инструментов: {data['information'][0]}\n"
-        for i in data["instrument_names"]:
+        report_text = f"""Всего инструментов: {data['information'][0]}\n"""
+        for i in data['instrument_names']:
             report_text += f"   {i[0]}: {i[1]}\n"
         report_text += f"Используемых инструментов: {data['information'][2]}\n"
         for i in data["users_instruments"]:

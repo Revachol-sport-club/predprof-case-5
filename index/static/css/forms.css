@@ -34,26 +34,37 @@ button {
     border-radius: 0.25rem;
     font-size: 20px;
     margin: 0.7rem;
+    margin-right: 0;
     margin-left: 0;
     display: block;
     width: 30%;
     height: 37px;
     cursor: pointer;
-    background-color: rgb(233, 174, 48);
+    background-color: rgb(39, 170, 35);
     border: 1px solid #686868;
-    transition: all 0.15s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 button.form-delete-button {
-    background-color: rgb(233, 48, 48);
+    background-color: rgb(236, 154, 30);
+    transition: all 0.3s ease-in-out;
 }
 .form-standart-select {
     display: block;
     width: 100%;
 }
-button:hover {
-    background-color: rgb(204, 152, 40);
-    color: rgb(0, 0, 0);
+.form-standart-button {
+    --reming: 12rem;
+}
+.form-standart-button:hover {
+    border: 1px solid rgb(37, 37, 37);
+    transform: scale(104%);
+    box-shadow: inset var(--reming) 0 0 0 rgb(30, 143, 26);
+    color: rgb(255, 255, 255);
 }
 button.form-delete-button:hover {
-    background-color: rgb(204, 40, 40);
+    border: 1px solid rgb(37, 37, 37);
+    background-color: rgb(236, 54, 30);
+    box-shadow: 4px 4px rgb(236, 71, 30);
+    transform: scale(95%);
+    color: white;
 }
