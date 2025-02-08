@@ -4,7 +4,7 @@
 ![image](https://github.com/user-attachments/assets/72cbe6b7-70e0-4b72-8451-1a705a514659)
 
 
-Ссылка на видео: 
+Ссылка на видео: https://rutube.ru/video/private/e7ba48ddfbf8fa3ed2755cb8f66dcbef/?p=NhJw79fWQjFPMym2cLfX9A
 
 Логин и пароль нейтрального пользователя без прав администратора:
 Логин: user   Пароль: user123456
